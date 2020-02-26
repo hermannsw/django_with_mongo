@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  api:
+    restart: always
+    build: ./app
+    ports:
+      - "8000:8000"
+    links:
+      - mongo
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app:/usr/src/app
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=app_api
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo/init/:/docker-entrypoint-initdb.d/
+    command: mongod --smallfiles
+
+volumes:
+    mongo_data:

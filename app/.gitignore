@@ -1,0 +1,47 @@
+### pipenv ###
+.venv
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+### node ###
+node_modules/
+
+### IDE ###
+.idea/
+
+### Project ###
+.env
+env/*.yml
+*.local
+.mypy_cache
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Serverless
+.serverless
+serverless.env.yml
+.requirements.zip
+serverless_sdk/
+.serverless-wsgi
